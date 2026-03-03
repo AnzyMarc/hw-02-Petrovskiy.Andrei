@@ -59,5 +59,5 @@ sudo docker ps
 3. Скриншот авторизации в админке
 Ниже представлен скриншот окна авторизации в веб-интерфейсе Zabbix (доступен по порту 8081).
 
-<img src="img/Autorization.png" alt="авторизация" width="500">
+<img src="img/Autorization.png" alt="авторизация" width="1000">
 
