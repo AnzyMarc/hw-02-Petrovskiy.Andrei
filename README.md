@@ -123,3 +123,8 @@ Host log
 
 <img src="img/vm_log.png" alt="host log" width="1000">
 
+Latest Data
+
+<img src="img/Latest Data.png" alt="latest data" width="1000">
+
+
