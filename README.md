@@ -17,7 +17,7 @@
 
 
 <details>
-<summary>## Задание 1 Решение </summary>
+<summary> Задание 1 решение развернуть </summary>
 
 
 ## Screnshots
