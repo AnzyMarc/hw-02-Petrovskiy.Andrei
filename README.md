@@ -25,10 +25,10 @@
 <img src="img/main-templates.png" alt="web" width="1000">
 
 # cpu
-<img src="img/item_1.png" alt="cpu" width="1000">
+<img src="img\Item_1.png" alt="cpu" width="1000">
 
 # ram
-<img src="img/item_2.png" alt="ram" width="1000">
+<img src="img/Item_2.png" alt="ram" width="1000">
 
 # Latest Data
 <img src="img/LatestData.png" alt="latest data" width="1000">
