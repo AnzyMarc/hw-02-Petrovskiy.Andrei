@@ -16,8 +16,8 @@
  ----------------------------------------------------------------
 
 
-### Решение 
-#### Задание 1
+<details>
+<summary>## Задание 1 Решение </summary>
 
 
 ## Screnshots
@@ -33,5 +33,7 @@
 
 # Latest Data
 <img src="img/LatestData.png" alt="latest data" width="1000">
+
+</details>
 
 
