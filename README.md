@@ -102,7 +102,17 @@
   **Результат (Статус хостов):**
   Оба хоста имеют статус **Enabled** и активное соединение **ZBX** (зеленый индикатор).
   
-  ![Итоговый статус хостов](img\templates_and_hosts.png)
+  **Итоговый статус хостов:**
+  <img src="img/templates_and_hosts.png" alt="hosts-tempates" width="1000">
+
+  ## В latest Data начали поступать данные о ram и cpu из my_template
+
+  **RAM:**
+  <img src="img/ram.png" alt="ram" width="1000">
+
+  ***CPU:**
+   <img src="img/cpu.png" alt="cpu" width="1000">
+
 </details>
 
 
