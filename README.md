@@ -31,4 +31,19 @@
 interface GigabitEthernet0/1
  standby 1 track GigabitEthernet0/0 70
  ```
+ 2. Проверка (Разрыв кабеля)
+
+Для проверки был удален кабель между Router0 и Switch0 (интерфейс Gi0/0).
+
+Результат:
+
+    Механизм Tracking мгновенно снизил приоритет Router0 в первой группе со 110 до 40 (видно на скриншоте Routers.png).
+
+    Роль Active для шлюза сервера (192.168.1.1) автоматически перешла ко второму маршрутизатору.
+
+    Связь между PC0 и Server0 не прервалась — ping проходит успешно через резервный путь
+
+##Routers screnshot
+<img src="./img/Routers.png" alt="routers" width="1000"/>
+
 
