@@ -43,7 +43,7 @@ interface GigabitEthernet0/1
 
     Связь между PC0 и Server0 не прервалась — ping проходит успешно через резервный путь
 
-##Routers screnshot
+## Routers screnshot
 <img src="./img/Routers.png" alt="routers" width="1000"/>
 
 
