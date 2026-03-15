@@ -121,14 +121,14 @@ vrrp_instance VI_1 {
 Конфигурация для второй машины (BACKUP)
 
 Путь: /etc/keepalived/keepalived.conf
-
+# Скрипт проверки (должен быть такой же, как на первой машине)
+```
 global_defs {
     enable_script_security
     script_user root
 }
 
-# Скрипт проверки (должен быть такой же, как на первой машине)
-```
+
 vrrp_script check_web_serv {
     script "/etc/keepalived/check_web.sh"
     interval 3
