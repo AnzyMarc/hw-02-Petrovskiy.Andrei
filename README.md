@@ -157,3 +157,14 @@ vrrp_instance VI_1 {
     }
 }
 ```
+
+3. Демонстрация работы (скриншоты)
+
+    Скриншот 1 (MASTER активен): Демонстрирует наличие виртуального IP 192.168.233.200 на первой машине при нормальной работе сервиса.
+    <img src="./img/master_ip.png" alt="master" width="1000"/>
+
+    Скриншот 2  BACKUP
+    <img src="./img/vm2_ip.png" alt="backup" width="1000"/>
+
+    Scrensot 3 (Переезд IP на BACKUP): После удаления файла index.html на MASTER, скрипт завершился с ошибкой, и Keepalived перенес виртуальный IP на вторую машину (BACKUP). Это подтверждается появлением адреса в выводе ip a на BACKUP сервере.
+     <img src="./img/vm2_err_ip.png" alt="backurt" width="1000"/>
