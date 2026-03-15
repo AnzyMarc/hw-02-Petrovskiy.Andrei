@@ -114,3 +114,46 @@ vrrp_instance VI_1 {
     }
 }
 ```
+
+Для второй машины (BACKUP) конфигурация должна быть почти идентичной, но с двумя ключевыми отличиями: статус и приоритет.
+
+В Keepalived у кого priority выше, тот и становится владельцем IP-адреса. Мы ставим на вторую машину приоритет ниже, чтобы она забирала IP только тогда, когда первая (MASTER) «упадет».
+Конфигурация для второй машины (BACKUP)
+
+Путь: /etc/keepalived/keepalived.conf
+
+global_defs {
+    enable_script_security
+    script_user root
+}
+
+# Скрипт проверки (должен быть такой же, как на первой машине)
+```
+vrrp_script check_web_serv {
+    script "/etc/keepalived/check_web.sh"
+    interval 3
+    fall 2
+    rise 2
+}
+
+vrrp_instance VI_1 {
+    state BACKUP              # Указываем роль BACKUP
+    interface ens33           # Интерфейс ens33 (как на скринах)
+    virtual_router_id 51      # ID должен быть ОДИНАКОВЫМ (51)
+    priority 90               # Приоритет НИЖЕ (90 против 100 у MASTER)
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass 12345       # Пароль должен совпадать
+    }
+
+    virtual_ipaddress {
+        192.168.233.200/24    # Тот же плавающий IP
+    }
+
+    track_script {
+        check_web_serv
+    }
+}
+```
