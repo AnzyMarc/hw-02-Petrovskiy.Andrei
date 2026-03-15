@@ -75,3 +75,42 @@ else
   exit 1 # Ошибка (триггер для переноса IP)
 fi
 ```
+
+2. Конфигурационный файл Keepalived (MASTER)
+
+Файл настроен на работу с интерфейсом ens33 и использование виртуального IP 192.168.233.200. Путь: /etc/keepalived/keepalived.conf.
+```
+global_defs {
+    enable_script_security
+    script_user root
+}
+
+# Секция скрипта проверки
+vrrp_script check_web_serv {
+    script "/etc/keepalived/check_web.sh"
+    interval 3     # Запуск каждые 3 секунды
+    fall 2         # Перенос IP после 2 неудач
+    rise 2         # Возврат после 2 успехов
+}
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface ens33
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass 12345
+    }
+
+    virtual_ipaddress {
+        192.168.233.200/24
+    }
+
+    track_script {
+        check_web_serv
+    }
+}
+```
