@@ -33,3 +33,33 @@ rsync -av --delete --checksum --exclude=".*" ~/ /tmp/backup/
     
 <img src="./img/terminal.png" alt="out terminal" width="1000"/>
 
+
+### Задание 2
+- Написать скрипт и настроить задачу на регулярное резервное копирование домашней директории пользователя с помощью rsync и cron.
+- Резервная копия должна быть полностью зеркальной
+- Резервная копия должна создаваться раз в день, в системном логе должна появляться запись об успешном или неуспешном выполнении операции
+- Резервная копия размещается локально, в директории `/tmp/backup`
+- На проверку направить файл crontab и скриншот с результатом работы утилиты.
+
+### Решение 
+
+```bash
+#!/bin/bash
+# Запуск зеркальной синхронизации без скрытых файлов
+rsync -av --delete --exclude=".*" ~/ /tmp/backup/
+
+# Логирование результата в системный журнал syslog
+if [ $? -eq 0 ]; then
+    logger "Rsync backup: Success"
+else
+    logger "Rsync backup: Error"
+fi
+```
+
+cron 
+<img src="./img/cron.png" alt="cron" width="1000"/>
+
+
+check
+<img src="./img/baskup_terminal.png" alt="log" width="1000"/>
+
